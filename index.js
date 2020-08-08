@@ -22,29 +22,60 @@ window.location.replace("ofertasPersonalizadas.html");
 const LS_NOMBRE = "nombre";
 const LS_EMAIL = "email";
 const LS_DECISION = "decision";
+const LS_DECISION_NOVEDADES = "decisionNovedades";
 
 // Se inicializan las variables con lo que pueda haber guardado en localStorage.
 //Si no hay nada, las variables e inicializarán con "null".
 let decision = localStorage.getItem(LS_DECISION);
 let nombreUsuario = localStorage.getItem(LS_NOMBRE);
 let emailUsuario = localStorage.getItem(LS_EMAIL);
+let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
 
 
 // Analizo el contenido de la variable nombre
 // Si contiene un null se pedirán los datos de la pensona.
-if (!nombreUsuario && decision == null)// Si existe un nombre de usuario, "decision" nunca pude contener true
+console.log("aaaaaaaaaaaaaaaaaaaaaaaa");
+if (!nombreUsuario && decision === null)// Si existe un nombre de usuario, "decision" nunca pude contener true
 {
-   if (confirm("¿Desea ingresar su nombre e e-mail?"))
+    console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+   if (confirm("¿Desea guardar sus datos?"))
    {
+       console.log("HHHHHHHHHHHHHHHHHHHHHH");
         perdirDatos();
         decision = true;
+        console.log("JJJJJJJJJJJJJJJJJJJJJJJ");
+
+        if (confirm("¿Desea recibir novedades por e-mail?"))
+        {
+            decisionNovedades = true;
+        }
+        else
+        {
+            decisionNovedades = false;
+        }
    }
    else
    {
         decision = false;
+        //decisionNovedades = false;
    }
 
-   guardarDecision(decision);
+   guardarDecisiones(decision, decisionNovedades);
+}
+
+
+// Si el usuario accedio a recibir novedades por e-mail...
+if (decisionNovedades == true)
+{
+    // Le informamos que hay una sección de ofertas especiales y le preguntamos si quiere acceder.
+    if (confirm("¡Tenemos ofertas personalizadas para vos!\n" + "¿Querés acceder a nuestra sección especial?"))
+    {
+        window.location.replace("ofertasPersonalizadas.html");
+    }
+    else
+    {
+        console.log("Hola");
+    }
 }
 
 
@@ -103,9 +134,10 @@ function guardarDatosEnLS(nombre, email)
 }
 
 // Guardar decision;
-function guardarDecision(decision) // A este punto solo pueden llegar dos valores: True o False.
+function guardarDecisiones(decision, decisionNovedades) // A este punto solo pueden llegar dos valores: True o False.
 {
     localStorage.setItem(LS_DECISION, decision);
+    localStorage.setItem(LS_DECISION_NOVEDADES, decisionNovedades);
 }
 
 
