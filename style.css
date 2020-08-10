@@ -220,3 +220,13 @@ section.mapa iframe {
     margin-top: 40px;
     width: 750px;
 }
+
+
+
+/*PÁGINA OFERTASPERSONALIZADAS*/
+img.imgOferta
+{
+    display: block;
+    margin: auto;
+    margin-top: 70px;
+}
