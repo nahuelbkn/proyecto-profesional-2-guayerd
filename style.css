@@ -104,6 +104,15 @@ footer h6 {
     margin-top: 80px;
     width: 100%;
 }
+
+div.contador
+{
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+}
+
  
 /*PAGINA HOME*/
  
