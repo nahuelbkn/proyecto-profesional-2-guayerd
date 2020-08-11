@@ -1,4 +1,3 @@
-
 // Se definen las constantes
 const LS_NOMBRE = "nombreJS";
 const LS_EMAIL = "emailJS";
@@ -9,16 +8,14 @@ const LS_DECISION_NOVEDADES = "decisionNovedades";
 // Se inicializan las variables con lo que pueda haber guardado en localStorage.
 //Si no hay nada, las variables e inicializarán con "null".
 let decision = localStorage.getItem(LS_DECISION);
-let nombreUsuario = localStorage.getItem(LS_NOMBRE);
+let nombreUsuarioIndex = localStorage.getItem(LS_NOMBRE);
 let emailUsuario = localStorage.getItem(LS_EMAIL);
 let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
 
 
-
-
 // Analizo el contenido de la variable nombre
 // Si contiene un null se pedirán los datos de la pensona.
-if (!nombreUsuario && decision === null)// Si existe un nombre de usuario, "decision" nunca pude contener true
+if (!nombreUsuarioIndex && decision === null)// Si existe un nombre de usuario, "decision" nunca pude contener true
 {
    if (confirm("¿Desea guardar sus datos?"))
    {
@@ -49,8 +46,8 @@ function perdirDatos()
     // Pedir nombre
     do
     {
-        nombreUsuario = prompt("Ingrese su nombre: ");
-    } while ( !validarNombre(nombreUsuario) );
+        nombreUsuarioIndex = prompt("Ingrese su nombre: ");
+    } while ( !validarNombre(nombreUsuarioIndex) );
 
     // Pedir e-mail
     do
@@ -58,7 +55,7 @@ function perdirDatos()
         emailUsuario = prompt("Ingrese su e-mail:");
     } while ( !validarEMail(emailUsuario) );
 
-    guardarDatosEnLS(nombreUsuario, emailUsuario);
+    guardarDatosEnLS(nombreUsuarioIndex, emailUsuario);
 }
 
 
