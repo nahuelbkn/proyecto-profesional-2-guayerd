@@ -101,4 +101,28 @@ function guardarDecisiones(decision, decisionNovedades) // A este punto solo pue
     localStorage.setItem(LS_DECISION_NOVEDADES, decisionNovedades);
 }
 
+//------------------------------------------------------------------------------------------->
+// Home 
+    // img - banner desde el servidor --------------->
+
+const SECCION_PRINCIPAL = document.querySelector("section.principal");
+const SERVIDOR_URL = "http://demo2420474.mockable.io/getHomeBanner";
+
+fetch(SERVIDOR_URL)
+.then(function(response)
+{
+    return response.json();
+})
+.then(function(objImagen)
+{
+    agregarObjImagen(objImagen, SECCION_PRINCIPAL);
+});
+
+function agregarObjImagen(objImg, elemento)
+{
+    let HTML_TarjetaImagen = 
+        `<a href="${objImg.link}"><img src="${objImg.imgUrl}" alt="${objImg.title}" class="imagen-principal"></a>`;
+    console.log(elemento)
+    elemento.appendChild(`<div>PRUEBA</div>`);
+}
 
