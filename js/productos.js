@@ -86,9 +86,6 @@ function agregarProductos(arrayProductos)
             </div>`
 
             tarjetas += nuevaTarjeta;
-
-            console.log("If");
-            console.log((Object.values(producto))[6]);
         }
         else 
         {
@@ -116,8 +113,6 @@ function agregarProductos(arrayProductos)
             </div>`
 
             tarjetas += nuevaTarjeta;
-            console.log("Else");
-            console.log((Object.values(producto))[6]);
         }
 
     });

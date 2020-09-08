@@ -12,24 +12,24 @@ let nombreUsuarioIndex = localStorage.getItem(LS_NOMBRE);
 let emailUsuario = localStorage.getItem(LS_EMAIL);
 let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
 
-
 // Analizo el contenido de la variable nombre
 // Si contiene un null se pedirán los datos de la pensona.
 if (!nombreUsuarioIndex && decision === null)// Si existe un nombre de usuario, "decision" nunca pude contener true
 {
-   if (confirm("¿Desea guardar sus datos?"))
+   if(confirm("¿Desea guardar sus datos?"))
    {
-        perdirDatos();
-        decision = true;
-
-        if (confirm("¿Desea recibir novedades por e-mail?"))
-        {
-            decisionNovedades = true;
-        }
-        else
-        {
-            decisionNovedades = false;
-        }
+       decision = true;
+       
+       if(confirm("¿Desea recibir novedades por e-mail?"))
+       {
+           decisionNovedades = true;
+       }
+       else
+       {
+           decisionNovedades = false;
+       }
+       
+       pedirDatos(decisionNovedades);
    }
    else
    {
@@ -41,7 +41,8 @@ if (!nombreUsuarioIndex && decision === null)// Si existe un nombre de usuario, 
 }
 
 
-function perdirDatos()
+
+function pedirDatos(decisionML)
 {
     // Pedir nombre
     do
@@ -56,8 +57,11 @@ function perdirDatos()
     } while ( !validarEMail(emailUsuario) );
 
     guardarDatosEnLS(nombreUsuarioIndex, emailUsuario);
+    
+    enviarDatosServidor(nombreUsuarioIndex, emailUsuario, decisionML);
 }
 
+//Funciones
 
 function validarNombre(nombre)
 {
@@ -84,6 +88,32 @@ function validarEMail(email)
     return valido;
 }
 
+function enviarDatosServidor(nombre, email , decision)
+{
+    const token = "GRUPOE2020";
+
+    let nuevoContacto = crearContacto(token , nombre, email , decision);
+
+    fetch("https://demo2420474.mockable.io/userData", {
+        method:'POST',
+        body: JSON.stringify(nuevoContacto),
+        headers:{'Content-Type':'application/json'} 
+    }).then(function(response)
+    {
+        return response.json()
+    }).then(function(contacto){
+        return contacto;
+    })
+};
+
+
+
+function crearContacto (token , nombre , email , sendEmail)
+{
+  let contacto = Object.assign({token , nombre, email, sendEmail}); 
+    
+  return contacto;
+}
 
 
 
