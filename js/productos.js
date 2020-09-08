@@ -13,24 +13,24 @@ Plantila productos:
 
 URL backend: https://demo2420474.mockable.io/productList
 
-MODELO OBJETO
-`[{"title": "",
-"description": "",
-"imgUrl": "",
-"inStock": 99,
-"price": 9999,
-"currency": "",
-"discountPrice": 9999}]`
+
 
 
 */
 const URL_PRODUCTOS = "https://demo2420474.mockable.io/productList";
+/*
+arrayProductos_ej = {
+    "title": "",
+    "description": "",
+    "imgUrl": "",
+    "inStock": 99,
+    "price": 9999,
+    "currency": "",
+    "discountPrice": 9999
+} 
 
-
-// DOM 
-
-
-
+let objeto_1 = Object.values(arrayProductos_ej);
+*/
 
 fetch(URL_PRODUCTOS)
 .then(function(response)
@@ -52,7 +52,47 @@ function agregarProductos(arrayProductos)
     let tarjetas;
     arrayProductos.forEach(function(producto)
     {
-        let nuevaTarjeta = 
+       if(producto.discountPrice !== undefined) //(Object.values(producto))[6] --> Object.values devuelve un arreglo con los valores de los Attr de un Obj.
+        {
+            let nuevaTarjeta = 
+            `<div class="producto">
+                <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
+                <div>
+                    <h3>${producto.title}</h3>
+                    <p>  
+                        ${producto.description}
+                    </p>
+
+                    <div>
+                        <div>
+                            <span>Stock: </span>
+                            <span>Stock: ${producto.inStock} unidades.</span>
+                        </div>
+                        <div>
+                            <span>
+                                <del>$${producto.price}</del>
+                            </span>
+                            <span>-${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}%</span>
+                        </div>
+                        <div>
+                            <span>
+                                <span>(${producto.currency})</span>
+                                <span><strong>$</strong></span>
+                                <span><strong>${producto.discountPrice}</strong></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+
+            tarjetas += nuevaTarjeta;
+
+            console.log("If");
+            console.log((Object.values(producto))[6]);
+        }
+        else 
+        {
+            let nuevaTarjeta = 
             `<div class="producto">
                 <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
                 <div>
@@ -68,22 +108,18 @@ function agregarProductos(arrayProductos)
                         </div>
                         <div>
                             <span>(${producto.currency})</span>
-                            <span>
-                                <del>$${producto.price}</del>
-                            </span>
-                            <span>-${(producto.discountPrice * 100) / producto.price}%</span>
-                        </div>
-                        <div>
-                            <span>
-                                <span>$</span>
-                                <span>${producto.discountPrice}</span>
-                            </span>
+                            <span><strong>$</strong></span>
+                            <span><strong>${producto.price}</strong></span>
                         </div>
                     </div>
                 </div>
             </div>`
 
-        tarjetas += nuevaTarjeta;
+            tarjetas += nuevaTarjeta;
+            console.log("Else");
+            console.log((Object.values(producto))[6]);
+        }
+
     });
 
     SECTION_PRODUCTOS.innerHTML = tarjetas;
