@@ -121,10 +121,8 @@ img.imagen-principal {
     margin: auto;
     margin-top: 70px;
     width: 100%;
-    height: 400px;
     object-fit: cover;
     object-position: bottom;
-
 }
  
 section.principal h2 {
