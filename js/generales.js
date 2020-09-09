@@ -23,7 +23,7 @@ let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
 // Si existe un nombre de usuario, "decision" nunca pude contener true
 if (!nombreUsuarioIndex && decision === null)
 {
-   if(confirm("¿Desea guardar sus datos?"))
+   if(confirm("¿Desea guardar su nombre y su email?"))
    {
        decision = true;
        
