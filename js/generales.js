@@ -111,7 +111,8 @@ function enviarDatosServidor(nombre, email , decision)
     })
     .then(function(contacto)
     {
-        return contacto;
+        //return contacto;
+        console.log(contacto);
     })
 };
 
