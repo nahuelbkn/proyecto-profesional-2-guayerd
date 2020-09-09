@@ -9,7 +9,7 @@ const SERVIDOR_URL = "http://demo2420474.mockable.io/getHomeBanner";
 fetch(SERVIDOR_URL)
 .then(function(response)
 {
-    return response.json();
+    return response.json()
 })
 .then(function(objImagen)
 {
