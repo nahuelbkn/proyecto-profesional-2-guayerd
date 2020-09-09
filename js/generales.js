@@ -1,11 +1,11 @@
 
 
 
-
 const LS_NOMBRE = "nombreJS";
 const LS_EMAIL = "emailJS";
 const LS_DECISION = "decision";
 const LS_DECISION_NOVEDADES = "decisionNovedades";
+const URL_SERVIDOR = "https://demo2420474.mockable.io/userData";
 
 
 
@@ -20,7 +20,8 @@ let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
 
 // Analizo el contenido de la variable nombre
 // Si contiene un null se pedirán los datos de la pensona.
-if (!nombreUsuarioIndex && decision === null)// Si existe un nombre de usuario, "decision" nunca pude contener true
+// Si existe un nombre de usuario, "decision" nunca pude contener true
+if (!nombreUsuarioIndex && decision === null)
 {
    if(confirm("¿Desea guardar sus datos?"))
    {
@@ -45,8 +46,6 @@ if (!nombreUsuarioIndex && decision === null)// Si existe un nombre de usuario, 
 
    guardarDecisiones(decision, decisionNovedades);
 }
-
-
 
 function pedirDatos(decisionML)
 {
@@ -100,14 +99,18 @@ function enviarDatosServidor(nombre, email , decision)
 
     let nuevoContacto = crearContacto(token , nombre, email , decision);
 
-    fetch("https://demo2420474.mockable.io/userData", {
+    fetch(URL_SERVIDOR , 
+    {
         method:'POST',
         body: JSON.stringify(nuevoContacto),
         headers:{'Content-Type':'application/json'} 
-    }).then(function(response)
+    })
+    .then(function(response)
     {
         return response.json()
-    }).then(function(contacto){
+    })
+    .then(function(contacto)
+    {
         return contacto;
     })
 };
