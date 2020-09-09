@@ -49,7 +49,7 @@ function agregarProductos(arrayProductos)
 {
     const SECTION_PRODUCTOS =  document.querySelector('section.productos');
 
-    let tarjetas;
+    let tarjetas = "";
     arrayProductos.forEach(function(producto)
     {
        if(producto.discountPrice !== undefined) //(Object.values(producto))[6] --> Object.values devuelve un arreglo con los valores de los Attr de un Obj.
@@ -114,8 +114,7 @@ function agregarProductos(arrayProductos)
 
             tarjetas += nuevaTarjeta;
         }
-
     });
 
-    SECTION_PRODUCTOS.innerHTML = tarjetas;
+    SECTION_PRODUCTOS.innerHTML += tarjetas;
 }

@@ -5,7 +5,7 @@
 const PATTERN_MAIL = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
 // Url del servidor del cliente
-URL_SERVIDOR = "https://demo2420474.mockable.io/submitForm";
+const URL_SERVIDOR_DATOS = "https://demo2420474.mockable.io/submitForm";
 
 
 
@@ -28,9 +28,9 @@ mensaje.addEventListener("blur" , blurHandler);
 
 
 //Funciones
-function enviarFormularioHandler (e)
+function enviarFormularioHandler (event)
 {   
-    e.preventDefault();
+    event.preventDefault();
 
     let validacion = validarCampos(nombre , email , telefono , tema , mensaje);
     
@@ -169,7 +169,7 @@ function empaquetarMensaje(nombre , email , telefono , tema , mensaje)
 
 function enviarDatosAlServidor(OBJ_Mensaje)
 {
-    fetch(URL_SERVIDOR, {
+    fetch(URL_SERVIDOR_DATOS, {
         method:'POST',
         body: JSON.stringify(OBJ_Mensaje),
         headers:{'Content-Type':'application/json'} 
@@ -190,7 +190,7 @@ function limpiarCampos()
     email.value = "";
     telefono.value = "";
     mensaje.value = "";
-    tema.value = "";
+    tema.value = "-";
 }
 
 function blurHandler(e)
