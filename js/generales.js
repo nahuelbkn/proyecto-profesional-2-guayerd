@@ -1,8 +1,12 @@
-// Se definen las constantes
+
+
+
+
 const LS_NOMBRE = "nombreJS";
 const LS_EMAIL = "emailJS";
 const LS_DECISION = "decision";
 const LS_DECISION_NOVEDADES = "decisionNovedades";
+
 
 
 // Se inicializan las variables con lo que pueda haber guardado en localStorage.
@@ -11,6 +15,8 @@ let decision = localStorage.getItem(LS_DECISION);
 let nombreUsuarioIndex = localStorage.getItem(LS_NOMBRE);
 let emailUsuario = localStorage.getItem(LS_EMAIL);
 let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
+
+
 
 // Analizo el contenido de la variable nombre
 // Si contiene un null se pedirán los datos de la pensona.
