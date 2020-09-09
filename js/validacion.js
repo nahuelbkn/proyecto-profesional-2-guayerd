@@ -82,6 +82,7 @@ function validarNombre(elemento)
 
     if((elemento.value === "") || hasNumber(elemento.value))
     {
+        elemento.value = "";
         elemento.placeholder = "Por favor, ingrese correctamente su nombre.";
         elemento.classList.add("error");
         respuesta = false;
@@ -162,7 +163,7 @@ function validarMensaje(elemento)
 
 function hasNumber(string) 
 {
-    let rta = [0-9].test(string); // let rta = /\d/.test(string);
+    let rta = /[0-9]/.test(string); // let rta = /\d/.test(string);
     return rta;
     // \d: Busca cualquier dígito (número arábigo). Equivalente a [0-9].
     //Por ejemplo, /\d/ o /[0-9]/ encuentra el "2" en "string" (string = "B2 es el número de suite").
