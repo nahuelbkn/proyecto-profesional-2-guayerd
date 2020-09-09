@@ -1,5 +1,5 @@
 const FORMULARIO = document.querySelector(".formulario");
-//const PATTERN_MAIL = `[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$`;
+const PATTERN_MAIL = `/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$/`;
 
 let nombre = document.querySelector("#nombre");
 let email = document.querySelector("#email");
@@ -7,7 +7,7 @@ let telefono = document.querySelector("#telefono");
 let mensaje = document.querySelector("#mensaje");
 let tema = document.querySelector("#tema");
 
-//email.setAttribute("pattern", "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$");
+//email.setAttribute("pattern", PATTERN_MAIL);
 
 ///Eventos
 
@@ -99,7 +99,9 @@ function validarEmail(elemento)
 {
     let respuesta = true;
 
-    if((elemento.value === "") /* || (!(PATTERN_MAIL.test(elemento.value))) */)
+    console.log(elemento.value)
+
+    if ( !(PATTERN_MAIL.test(elemento.value)) )
     {
         elemento.value = "";
         elemento.placeholder = "Por favor, ingrese correctamente su email.";
