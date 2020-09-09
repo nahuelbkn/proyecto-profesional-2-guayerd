@@ -68,15 +68,15 @@
     
             <h2>Contacto</h2>
         
-            <form action="https://ptsv2.com/t/guayerd/post" method="POST">
+            <form action="https://ptsv2.com/t/guayerd/post" method="POST" class="formulario">
                 
                 <input type="hidden" name="grupo" value="e" >
     
                 <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" required>
+                <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" >
     
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Ingresa tu Email" required>
+                <input type="email" name="email" id="email" placeholder="Ingresa tu Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
     
                 <label for="tema">Tema</label>
                 <select name="tema" id="tema">
@@ -84,11 +84,12 @@
                     <option value="consulta">Consulta</option>
                     <option value="compras">Compras</option>
                     <option value="reclamos">Reclamos</option>
+                    <option value="otro">Otro</option>
                 </select>
                 
     
                 <label for="mensaje">Mensaje</label>
-                <textarea name="mensaje" id="mesanje" cols="30" rows="10" required placeholder="Escribe tu mensaje"></textarea>
+                <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Escribe tu mensaje"></textarea>
     
                 <input type="submit" value="Enviar">
     
@@ -123,6 +124,7 @@
         
         <!-- Este script debe estar en cada página del sistema. -->
         <script src="../js/descuentos.js"></script>
+        <script src="../js/validacion.js"></script>
 
 
         <!-- HEATMAP -->

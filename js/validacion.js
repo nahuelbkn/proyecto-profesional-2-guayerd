@@ -1,0 +1,124 @@
+const FORMULARIO = document.querySelector(".formulario");
+//const PATTERN_MAIL = `[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$`;
+
+let nombre = document.querySelector("#nombre");
+let email = document.querySelector("#email");
+let mensaje = document.querySelector("#mensaje");
+let tema = document.querySelector("#tema");
+
+//email.setAttribute("pattern", "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]$");
+
+///Eventos
+
+FORMULARIO.addEventListener("submit" , enviarFormularioHandler);
+nombre.addEventListener("blur" , blurHandler);
+email.addEventListener("blur" , blurHandler);
+mensaje.addEventListener("blur" , blurHandler);
+
+
+//Funciones
+function enviarFormularioHandler (e)
+{   
+    e.preventDefault();
+
+    let validacion = validarCampos(nombre , email , tema , mensaje);
+    
+    if(validacion)
+    {
+        alert(`Gracias ${nombre.value}, su mensaje ha sido enviado con éxito.`);
+        window.location.reload();
+    }
+}
+
+function blurHandler(e)
+{
+    e.target.classList.remove("error");
+}
+
+function validarCampos(input_nombre , input_email , input_tema , input_mensaje)
+{   
+    let validacion = false;
+
+    let validacionNombre = validarNombre(input_nombre);
+    let validacionMail = validarEmail(input_email);
+    validarTema(input_tema);
+    let validacionMensaje = validarMensaje(input_mensaje);
+     
+    if(validacionNombre && validacionMail && validacionMensaje)
+    {
+        validacion = true;
+    }
+
+    return validacion;
+}
+
+function validarNombre(elemento)
+{
+    let respuesta = true;
+
+    if((elemento.value === "") || hasNumber(elemento.value))
+    {
+        elemento.placeholder = "Por favor, ingrese correctamente su nombre.";
+        elemento.classList.add("error");
+        respuesta = false;
+    } 
+    else 
+    {
+        elemento.classList.remove("error");
+    }
+
+    return respuesta;
+}
+
+function validarEmail(elemento)
+{
+    let respuesta = true;
+
+    if((elemento.value === "") /* || (!(PATTERN_MAIL.test(elemento.value))) */)
+    {
+        elemento.value = "";
+        elemento.placeholder = "Por favor, ingrese correctamente su email.";
+        elemento.classList.add("error");
+        respuesta = false;
+    } 
+    else 
+    {
+        elemento.classList.remove("error");
+    }
+
+    return respuesta;
+}
+
+function validarTema(elemento)
+{
+    if(elemento.value === "-")
+    {
+        elemento.value = "otro";
+    }
+}
+
+function validarMensaje(elemento)
+{
+    let respuesta = true;
+
+    if(elemento.value === "")
+    {
+        elemento.setAttribute("minlength" , "20");
+        elemento.setAttribute("maxlength" , "800");
+        elemento.placeholder = "Por favor, ingrese su mensaje.";
+        elemento.classList.add("error");
+        respuesta = false;
+    } 
+    else 
+    {
+        elemento.classList.remove("error");
+    }
+
+    return respuesta;
+}
+
+function hasNumber(myString) 
+{
+    return /\d/.test(myString);
+}
+  
