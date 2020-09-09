@@ -107,7 +107,6 @@ function enviarDatosServidor(nombre, email , decision)
 };
 
 
-
 function crearContacto (token , nombre , email , sendEmail)
 {
   let contacto = {token: token , nombre: nombre, email: email, sendEmail: sendEmail}; 

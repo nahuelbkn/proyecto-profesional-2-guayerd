@@ -3,6 +3,7 @@ const FORMULARIO = document.querySelector(".formulario");
 
 let nombre = document.querySelector("#nombre");
 let email = document.querySelector("#email");
+let telefono = document.querySelector("#telefono");
 let mensaje = document.querySelector("#mensaje");
 let tema = document.querySelector("#tema");
 
@@ -13,6 +14,7 @@ let tema = document.querySelector("#tema");
 FORMULARIO.addEventListener("submit" , enviarFormularioHandler);
 nombre.addEventListener("blur" , blurHandler);
 email.addEventListener("blur" , blurHandler);
+telefono.addEventListener("blur" , blurHandler);
 mensaje.addEventListener("blur" , blurHandler);
 
 
@@ -21,13 +23,34 @@ function enviarFormularioHandler (e)
 {   
     e.preventDefault();
 
-    let validacion = validarCampos(nombre , email , tema , mensaje);
+    let validacion = validarCampos(nombre , email , telefono , tema , mensaje);
     
     if(validacion)
     {
+        let nuevoMensaje = empaquetarMensaje(nombre , email , telefono , tema , mensaje);
+
+        fetch("https://demo2420474.mockable.io/submitForm", {
+            method:'POST',
+            body: JSON.stringify(nuevoMensaje),
+            headers:{'Content-Type':'application/json'} 
+        }).then(function(response)
+        {
+            return response.json()
+        }).then(function(mensaje){
+            console.log(mensaje);
+        });
+
         alert(`Gracias ${nombre.value}, su mensaje ha sido enviado con éxito.`);
-        window.location.reload();
+        //window.location.reload();
     }
+
+}
+
+function empaquetarMensaje(nombre , email , telefono , tema , mensaje)
+{
+  let objMensaje = {name: nombre , email: email, phone: telefono, subject: tema, message: mensaje}; 
+
+  return objMensaje;
 }
 
 function blurHandler(e)
@@ -35,16 +58,17 @@ function blurHandler(e)
     e.target.classList.remove("error");
 }
 
-function validarCampos(input_nombre , input_email , input_tema , input_mensaje)
+function validarCampos(input_nombre , input_email , input_telefono , input_tema , input_mensaje)
 {   
     let validacion = false;
 
     let validacionNombre = validarNombre(input_nombre);
     let validacionMail = validarEmail(input_email);
+    let validacionTelefono = validarTelefono(input_telefono);
     validarTema(input_tema);
     let validacionMensaje = validarMensaje(input_mensaje);
      
-    if(validacionNombre && validacionMail && validacionMensaje)
+    if(validacionNombre && validacionMail && validacionTelefono && validacionMensaje)
     {
         validacion = true;
     }
@@ -78,6 +102,25 @@ function validarEmail(elemento)
     {
         elemento.value = "";
         elemento.placeholder = "Por favor, ingrese correctamente su email.";
+        elemento.classList.add("error");
+        respuesta = false;
+    } 
+    else 
+    {
+        elemento.classList.remove("error");
+    }
+
+    return respuesta;
+}
+
+function validarTelefono(elemento)
+{
+    let respuesta = true;
+
+    if((elemento.value === "") || isNaN(elemento.value))
+    {
+        elemento.value = "";
+        elemento.placeholder = "Por favor, ingrese correctamente su teléfono.";
         elemento.classList.add("error");
         respuesta = false;
     } 
