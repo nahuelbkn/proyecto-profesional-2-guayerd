@@ -66,7 +66,7 @@ function agregarProductos(arrayProductos)
                     <div>
                         <div>
                             <span>Stock: </span>
-                            <span>Stock: ${producto.inStock} unidades.</span>
+                            <span>${producto.inStock} unidades.</span>
                         </div>
                         <div>
                             <span>
