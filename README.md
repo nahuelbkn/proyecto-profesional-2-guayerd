@@ -8,6 +8,6 @@ Repositorio de proyectos profesionales del Grupo E de Guayerd.
 - Guido Alferez
 - Daniela Moure
 - Nahuel Trucco
-<del>- Ignacio Espindola</del>
+- <del>Ignacio Espindola</del>
 
 
