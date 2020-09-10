@@ -12,7 +12,7 @@ Celeste claro.....: #00A8E8
 
 */
  
-/*ESTILOS GENERALES*/
+/*ESTILOS GENERALES -------------------------------------------------------------------------*/
  
 * {
     box-sizing: border-box;
@@ -119,7 +119,7 @@ button , input , textarea , select
 }
 
  
-/*PAGINA HOME*/
+/*PAGINA HOME ----------------------------------------------------------------------------*/
  
 img.imagen-principal {
     display: block;
@@ -154,7 +154,7 @@ table.premio thead {
     letter-spacing: 1px;
 }
  
-/*PAGINA PRODUCTOS*/
+/*PAGINA PRODUCTOS -------------------------------------------------------------------------*/
  
 div.producto {
     display: flex;
@@ -190,7 +190,7 @@ section.productos h2 {
     margin-bottom: 40px;
 }
  
-/*PAGINA CONTACTO*/
+/*PAGINA CONTACTO -------------------------------------------------------------------------*/
  
 section.contacto form {
     display: flex;
@@ -243,7 +243,7 @@ section.mapa iframe {
 }
 
 
-/*PÁGINA OFERTASPERSONALIZADAS*/
+/*PÁGINA OFERTASPERSONALIZADAS ---------------------------------------------------------------------*/
 img.imgOferta
 {
     display: block;
