@@ -1,6 +1,6 @@
 # proyecto-profesional-guayerd
 
-Repositorio de proyectos profesionales del Grupo E de Guayerd.
+Repositorio de proyectos del Grupo E de Guayerd.
 
 ### Integrantes del equipo:
 - Matías Aquino
