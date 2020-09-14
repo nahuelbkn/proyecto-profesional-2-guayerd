@@ -1,6 +1,6 @@
 # proyecto-profesional-guayerd
 
-Repositorio de proyectos profesionales del Grupo E de Guayerd.
+Repositorio de proyectos del Grupo E de Guayerd.
 
 ### Integrantes del equipo:
 - Matías Aquino
@@ -8,6 +8,6 @@ Repositorio de proyectos profesionales del Grupo E de Guayerd.
 - Guido Alferez
 - Daniela Moure
 - Nahuel Trucco
-- Ignacio Espindola
+- <del>Ignacio Espindola</del>
 
 
