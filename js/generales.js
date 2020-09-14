@@ -1,6 +1,4 @@
-
-
-
+// Se definen constantes
 const LS_NOMBRE = "nombreJS";
 const LS_EMAIL = "emailJS";
 const LS_DECISION = "decision";
@@ -8,14 +6,12 @@ const LS_DECISION_NOVEDADES = "decisionNovedades";
 const URL_SERVIDOR = "https://demo2420474.mockable.io/userData";
 
 
-
 // Se inicializan las variables con lo que pueda haber guardado en localStorage.
-//Si no hay nada, las variables e inicializarán con "null".
+// Si no hay nada, las variables e inicializarán con "null".
 let decision = localStorage.getItem(LS_DECISION);
 let nombreUsuarioIndex = localStorage.getItem(LS_NOMBRE);
 let emailUsuario = localStorage.getItem(LS_EMAIL);
 let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
-
 
 
 // Analizo el contenido de la variable nombre
@@ -23,7 +19,7 @@ let decisionNovedades = localStorage.getItem(LS_DECISION_NOVEDADES);
 // Si existe un nombre de usuario, "decision" nunca pude contener true
 if (!nombreUsuarioIndex && decision === null)
 {
-   if(confirm("¿Desea guardar su nombre y su email?"))
+   if(confirm("Bienvenido/a, ¿Desea guardar su nombre y su email?"))
    {
        decision = true;
        
@@ -59,7 +55,7 @@ function pedirDatos(decisionML)
     do
     {
         emailUsuario = prompt("Ingrese su e-mail:");
-    } while ( !validarEMail(emailUsuario) );
+    } while ( !validarEmail(emailUsuario) );
 
     guardarDatosEnLS(nombreUsuarioIndex, emailUsuario);
     
@@ -67,12 +63,11 @@ function pedirDatos(decisionML)
 }
 
 //Funciones
-
 function validarNombre(nombre)
 {
     let valido = false;
 
-    if ( nombre != null && nombre.length > 0 )
+    if ( nombre != null && nombre.length > 0 && nombre !== " " )
     {
         valido = true;
     }
@@ -81,7 +76,7 @@ function validarNombre(nombre)
 }
 
 
-function validarEMail(email)
+function validarEmail(email)
 {
     let valido = false;
 
@@ -119,12 +114,10 @@ function enviarDatosServidor(nombre, email , decision)
 
 function crearContacto (token , nombre , email , sendEmail)
 {
-  let contacto = {token: token , nombre: nombre, email: email, sendEmail: sendEmail}; 
+  let contacto = {token: token , name: nombre, email: email, sendEmail: sendEmail}; 
     
   return contacto;
 }
-
-
 
 // Guardar datos en localStorage.
 function guardarDatosEnLS(nombre, email)
@@ -133,9 +126,40 @@ function guardarDatosEnLS(nombre, email)
     localStorage.setItem(LS_EMAIL, email);
 }
 
-// Guardar decision.
-function guardarDecisiones(decision, decisionNovedades) // A este punto solo pueden llegar dos valores: True o False.
+// Guardar decisión en LocalStorage.
+// A este punto solo pueden llegar dos valores: True o False.
+function guardarDecisiones(decision, decisionNovedades) 
 {
     localStorage.setItem(LS_DECISION, decision);
     localStorage.setItem(LS_DECISION_NOVEDADES, decisionNovedades);
 }
+
+// Heatmap --------------------------------------------------------------------------------------
+const heatmap = document.querySelector(".heatmap");
+
+const tarjeta_heatmap = `
+    <script>
+        (function(h,e,a,t,m,p) 
+        {
+            m=e.createElement(a);m.async=!0;m.src=t;
+            p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
+        })
+        (window,document,'script','https://u.heatmap.it/log.js');
+    </script> `;
+
+heatmap.innerHTML = tarjeta_heatmap;
+
+
+//Estadisticas---------------------------------------------------------------------------------
+const estadisticas = document.querySelector(".estadisticas");
+const tarjeta_estadisticas =
+        `<div class="contador" id="sfcc7t6zs95ynk6te8wqb84pxdg7gb5fhy1"></div>
+        
+        <script type="text/javascript" src="https://counter3.stat.ovh/private/counter.js?c=c7t6zs95ynk6te8wqb84pxdg7gb5fhy1&down=async" async></script>
+        
+        <noscript>
+            <a href="https://www.contadorvisitasgratis.com" title="contador de visitas gratis">
+            <img src="https://counter3.stat.ovh/private/contadorvisitasgratis.php?c=c7t6zs95ynk6te8wqb84pxdg7gb5fhy1" title="contador de visitas gratis" alt="contador de visitas gratis"></a>
+        </noscript>`;
+
+estadisticas.innerHTML = tarjeta_estadisticas;
