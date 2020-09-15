@@ -3,37 +3,37 @@ ATENCIÓN A CAMPO "DISCOUNT"
 Plantila productos completa:
 
 `<div class="producto">
-                <img src="" alt="Bicicleta ${producto.title}">
-                <div>
-                    <h3>${producto.title}</h3>
-                    <p>  
-                        ${producto.description}
-                    </p>
+    <img src="" alt="Bicicleta ${producto.title}">
+    <div>
+        <h3>${producto.title}</h3>
+        <p>  
+            ${producto.description}
+        </p>
 
-                    <div>
-                        <div>
-                            <span>Stock: </span>
-                            <span>${producto.inStock} unidades.</span>
-                        </div>
+        <div>
+            <div>
+                <span>Stock: </span>
+                <span>${producto.inStock} unidades.</span>
+            </div>
 
-                        <div class="precio-original">
-                            <span>
-                                <del>$${producto.price}</del>
-                            </span>
+            <div class="precio-original">
+                <span>
+                    <del>$${producto.price}</del>
+                </span>
 
-                            <span>-${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}%</span>
-                        </div>
+                <span>-${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}%</span>
+            </div>
 
-                        <div class="precio-final">
-                            <span>
-                                <span>(${producto.currency})</span>
-                                <span><strong>$</strong></span>
-                                <span><strong>${producto.discountPrice}</strong></span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>`
+            <div class="precio-final">
+                <span>
+                    <span>(${producto.currency})</span>
+                    <span><strong>$</strong></span>
+                    <span><strong>${producto.discountPrice}</strong></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>`
 
 */
 
