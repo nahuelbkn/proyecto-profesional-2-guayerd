@@ -1,22 +1,42 @@
 /* 
-Plantila productos:
+ATENCIÓN A CAMPO "DISCOUNT"
+Plantila productos completa:
 
-<div class="producto">
-    <img src="" alt="Bicicleta #">
-    <div>
-        <h3></h3>
-        <p>  
+`<div class="producto">
+                <img src="" alt="Bicicleta ${producto.title}">
+                <div>
+                    <h3>${producto.title}</h3>
+                    <p>  
+                        ${producto.description}
+                    </p>
 
-        </p>
-    </div>
-</div>
+                    <div>
+                        <div>
+                            <span>Stock: </span>
+                            <span>${producto.inStock} unidades.</span>
+                        </div>
 
-URL backend: https://demo2420474.mockable.io/productList
+                        <div class="precio-original">
+                            <span>
+                                <del>$${producto.price}</del>
+                            </span>
 
+                            <span>-${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}%</span>
+                        </div>
 
-
+                        <div class="precio-final">
+                            <span>
+                                <span>(${producto.currency})</span>
+                                <span><strong>$</strong></span>
+                                <span><strong>${producto.discountPrice}</strong></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>`
 
 */
+
 const URL_PRODUCTOS = "https://demo2420474.mockable.io/productList";
 /*
 arrayProductos_ej = {
@@ -25,11 +45,9 @@ arrayProductos_ej = {
     "imgUrl": "",
     "inStock": 99,
     "price": 9999,
-    "currency": "",
-    "discountPrice": 9999
+    "currency": "", 
+    "discountPrice": 9999 //No se encuentra en todos los productos.
 } 
-
-let objeto_1 = Object.values(arrayProductos_ej);
 */
 
 fetch(URL_PRODUCTOS)
@@ -43,7 +61,6 @@ fetch(URL_PRODUCTOS)
 });
 
 
-
 //FUNCIONES   -----------------
 function agregarProductos(arrayProductos)
 {
@@ -51,8 +68,9 @@ function agregarProductos(arrayProductos)
 
     let tarjetas = "";
     arrayProductos.forEach(function(producto)
-    {
-       if(producto.discountPrice !== undefined) //(Object.values(producto))[6] --> Object.values devuelve un arreglo con los valores de los Attr de un Obj.
+    {   
+        //(Object.values(producto))[6] --> Object.values devuelve un arreglo con los valores de los Attr de un Obj.
+       if(producto.discountPrice !== undefined) 
         {
             let nuevaTarjeta = 
             `<div class="producto">
@@ -70,9 +88,10 @@ function agregarProductos(arrayProductos)
                         </div>
                         <div>
                             <span>
+                                Precio original:
                                 <del>$${producto.price}</del>
                             </span>
-                            <span>-${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}%</span>
+                            <span>Tenes un ${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}% de descuento</span>
                         </div>
                         <div>
                             <span>
