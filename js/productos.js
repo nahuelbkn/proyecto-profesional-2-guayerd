@@ -75,32 +75,32 @@ function agregarProductos(arrayProductos)
             let nuevaTarjeta = 
             `<div class="producto">
                 <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
-                <div>
+                <div class="informacion-producto">
                     <h3>${producto.title}</h3>
-                    <p>  
-                        ${producto.description}
-                    </p>
-
-                    <div>
+                    <p>${producto.description}</p>
+                    
+                    <div class="datos">
                         <div>
+                            <span class="precio-tachado">
+                                <del>$${producto.price}</del>
+                            </span>
+                        </div>
+                        
+                        <div>
+                            <span>
+                                <span class="descuento bolt">${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}% OFF</span>
+                                <span><br></span>
+                                <span class="precio-final bolt">$${producto.discountPrice}</span> 
+                                <span>(${producto.currency})</span>
+                            </span>
+                        </div>
+                        
+                        <div class="stock">
                             <span>Stock: </span>
                             <span>${producto.inStock} unidades.</span>
                         </div>
-                        <div>
-                            <span>
-                                Precio original:
-                                <del>$${producto.price}</del>
-                            </span>
-                            <span>Tenes un ${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}% de descuento</span>
-                        </div>
-                        <div>
-                            <span>
-                                <span>(${producto.currency})</span>
-                                <span><strong>$</strong></span>
-                                <span><strong>${producto.discountPrice}</strong></span>
-                            </span>
-                        </div>
                     </div>
+
                 </div>
             </div>`
 
@@ -111,23 +111,24 @@ function agregarProductos(arrayProductos)
             let nuevaTarjeta = 
             `<div class="producto">
                 <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
-                <div>
-                    <h3>${producto.title}</h3>
-                    <p>  
-                        ${producto.description}
-                    </p>
+                
+                <div class="informacion-producto">
 
-                    <div>
+                    <h3>${producto.title}</h3>
+                    <p>${producto.description}</p>
+
+                    <div class="datos">
                         <div>
+                            <span class="precio-final bolt" >$ ${producto.price}</span>
+                            <span>(${producto.currency})</span>
+                        </div>
+                        
+                        <div class="stock">
                             <span>Stock: </span>
                             <span>${producto.inStock}</span>
                         </div>
-                        <div>
-                            <span>(${producto.currency})</span>
-                            <span><strong>$</strong></span>
-                            <span><strong>${producto.price}</strong></span>
-                        </div>
                     </div>
+
                 </div>
             </div>`
 

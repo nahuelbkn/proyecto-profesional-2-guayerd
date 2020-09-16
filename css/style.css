@@ -156,13 +156,52 @@ table.premio thead {
  
 /*PAGINA PRODUCTOS -------------------------------------------------------------------------*/
  
-div.producto {
+div.producto
+{
     display: flex;
     margin: auto;
     margin-bottom: 40px;
     width: 80%;
 }
  
+div.datos {
+    display: block;
+    margin: auto;
+    margin-bottom: 40px;
+    width: 80%;
+}
+
+span.precio-tachado
+{
+    font-size: 14px;
+    color: rgb(97, 97, 97);
+    
+}
+
+span.descuento
+{
+
+    color: rgb(7, 139, 7);
+}
+
+span.precio-final
+{
+    height: 50px;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+div.stock
+{
+    margin-top: 10px;
+}
+
+.bolt
+{
+    font-weight: bold;
+}
+
+
 div.producto:hover {
     box-shadow: 0px 0px 10px #007EA7;
     cursor: pointer;
@@ -189,6 +228,9 @@ div.producto h3 {
 section.productos h2 {
     margin-bottom: 40px;
 }
+
+
+
  
 /*PAGINA CONTACTO -------------------------------------------------------------------------*/
  
