@@ -228,8 +228,6 @@ section.productos h2 {
 }
 
 
-
- 
 /*PAGINA CONTACTO -------------------------------------------------------------------------*/
  
 section.contacto form {
@@ -248,9 +246,11 @@ section.contacto form input,
 section.contacto form select,
 section.contacto form textarea {
     margin-bottom: 20px;
-    padding: 5px;
+    padding: 10px;
     border: 2px solid silver;
+    font-size: 18px;
 }
+
  
 section.contacto form input[type="submit"] {
     background-color: #007EA7;
