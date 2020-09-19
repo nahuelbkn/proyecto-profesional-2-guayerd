@@ -69,14 +69,15 @@ function agregarProductos(arrayProductos)
 
     let tarjetas = "";
     arrayProductos.forEach(function(producto)
-    {   
+    {
         //(Object.values(producto))[6] --> Object.values devuelve un arreglo con los valores de los Attr de un Obj.
        if(producto.discountPrice !== undefined) 
-        
        {
             let nuevaTarjeta = 
             `<div class="producto">
-                <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
+                <div class="imagen-productos">
+                    <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
+                </div>
                 <div class="informacion-producto">
                     <h3>${producto.title}</h3>
                     <p>${producto.description}</p>
@@ -112,7 +113,10 @@ function agregarProductos(arrayProductos)
         {
             let nuevaTarjeta = 
             `<div class="producto">
-                <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
+                
+                <div class="imagen-productos">
+                    <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">
+                </div>
                 
                 <div class="informacion-producto">
 

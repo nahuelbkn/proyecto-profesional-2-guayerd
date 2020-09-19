@@ -37,6 +37,11 @@ nav {
     width: 100%;
 }
 
+a
+{
+    text-decoration: none;
+}
+
 div.navTitle{
     display: flex;
 }
@@ -118,6 +123,10 @@ button , input , textarea , select
     border-radius: 10px;
 }
 
+div.navTitle h1:hover
+{
+    color: #007EA7;
+}
  
 /*PAGINA HOME ----------------------------------------------------------------------------*/
  
