@@ -1,3 +1,5 @@
+
+
 // Se definen constantes
 const LS_NOMBRE = "nombreJS";
 const LS_EMAIL = "emailJS";

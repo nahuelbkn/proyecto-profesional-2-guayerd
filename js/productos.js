@@ -1,3 +1,4 @@
+//Se inializa productos
 /* 
 ATENCIÓN A CAMPO "DISCOUNT"
 Plantila productos completa:
@@ -71,7 +72,8 @@ function agregarProductos(arrayProductos)
     {   
         //(Object.values(producto))[6] --> Object.values devuelve un arreglo con los valores de los Attr de un Obj.
        if(producto.discountPrice !== undefined) 
-        {
+        
+       {
             let nuevaTarjeta = 
             `<div class="producto">
                 <img src="${producto.imgUrl}" alt="Bicicleta ${producto.title}">

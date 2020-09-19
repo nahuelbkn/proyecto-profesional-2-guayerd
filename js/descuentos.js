@@ -1,3 +1,4 @@
+
 // OBTENEMOS DEL STORAGE EL NOMBRE DEL USUARIO
 let nombreUsuario = localStorage.getItem("nombreJS");
 
