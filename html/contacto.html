@@ -73,7 +73,7 @@
     
             <h2>Contacto</h2>
         
-            <form action="#" method="POST" class="formulario" autocomplete="off">
+            <form action="#" method="POST" class="formulario"  >
                 
                 <input type="hidden" name="grupo" value="e" >
     
@@ -106,20 +106,29 @@
         </section>
         <!--Fin de formulario de contacto ------------------------------------------------------------------------>
 
+        <!-- HEATMAP -->
+        <div id="mapacalor"></div>
+    
+        <!-- ESTADISTICAS -->
+        <div id="estadisticas"></div>
+        
         <!-- Este script debe estar en cada página del sistema. -->
+        <script src="../js/contacto/descuentos.js"></script>
+        <script src="../js/contacto/validacion.js"></script>
         <script src="../js/generales.js"></script>
-        <!-- Lo hubicamos acá para que no entre en conflicto con datos del mapa de google -->
+
 
         <!--Mapa ------------------------------------------------------------------------------------------------->
         <section class="mapa">
             <h2>Mapa</h2>
-    
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.5125198743663!2d-58.45006848505276!3d-34.59119936434233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb5f12e398ecd%3A0x98abf435fbfab70!2sAv.%20Corrientes%206237%2C%20C1427BPA%20CABA!5e0!3m2!1ses-419!2sar!4v1594927546270!5m2!1ses-419!2sar" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
-            </iframe>
+            
         </section>
         <!--Fin sección Mapa ------------------------------------------------------------------------------------->
         
-        
+        <!-- Llamamos a map.js -->
+        <script src="../js/contacto/map.js"></script>
+
+
         <!--Comienzo de Footer-------------------------------------------------------------------------------->
    
         <footer class="footerGeneral">
@@ -129,18 +138,6 @@
         </footer>
  
         <!--Fin de Footer------------------------------------------------------------------------------------->
-        
-        <!-- HEATMAP -->
-        <div class="heatmap"></div>
-
-        <!-- ESTADISTICAS -->
-        <div class="estadisticas"></div>
-        
-        <!-- Este script debe estar en cada página del sistema. -->
-        <script src="../js/descuentos.js"></script>
-        <script src="../js/validacion.js"></script>
-        <script src="../js/generales.js"></script>
-
 
     </body>
 </html>

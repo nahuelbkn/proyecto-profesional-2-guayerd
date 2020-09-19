@@ -137,23 +137,22 @@ function guardarDecisiones(decision, decisionNovedades)
 }
 
 // Heatmap --------------------------------------------------------------------------------------
-const heatmap = document.querySelector(".heatmap");
+const heatmap =  document.getElementById("mapacalor");
 
-const tarjeta_heatmap = `
-    <script>
+const tarjeta_heatmap = 
+    `<script>
         (function(h,e,a,t,m,p) 
         {
             m=e.createElement(a);m.async=!0;m.src=t;
             p=e.getElementsByTagName(a)[0];p.parentNode.insertBefore(m,p);
         })
         (window,document,'script','https://u.heatmap.it/log.js');
-    </script> `;
+    </script>`;
 
-heatmap.innerHTML = tarjeta_heatmap;
-
+    heatmap.innerHTML = tarjeta_heatmap;
 
 //Estadisticas---------------------------------------------------------------------------------
-const estadisticas = document.querySelector(".estadisticas");
+const estadisticas =document.getElementById("estadisticas");
 const tarjeta_estadisticas =
         `<div class="contador" id="sfcc7t6zs95ynk6te8wqb84pxdg7gb5fhy1"></div>
         
