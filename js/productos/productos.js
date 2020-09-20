@@ -91,9 +91,9 @@ function agregarProductos(arrayProductos)
                         
                         <div>
                             <span>
-                                <span class="descuento bolt">${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}% OFF</span>
+                                <span class="descuento bold">${(100-((producto.discountPrice * 100) / producto.price).toFixed(0))}% OFF</span>
                                 <span><br></span>
-                                <span class="precio-final bolt">$${producto.discountPrice}</span> 
+                                <span class="precio-final bold">$${producto.discountPrice}</span> 
                                 <span>(${producto.currency})</span>
                             </span>
                         </div>
@@ -125,7 +125,7 @@ function agregarProductos(arrayProductos)
 
                     <div class="datos">
                         <div>
-                            <span class="precio-final bolt" >$ ${producto.price}</span>
+                            <span class="precio-final bold" >$ ${producto.price}</span>
                             <span>(${producto.currency})</span>
                         </div>
                         
