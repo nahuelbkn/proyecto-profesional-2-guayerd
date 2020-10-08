@@ -4,9 +4,9 @@
 //-------------------------------------------------------------------------------------------
 
 const DIV_IMG_PRINCIPAL = document.querySelector("div.imagen-principal");
-const SERVIDOR_URL = "http://demo2420474.mockable.io/getHomeBanner";
+const RECURSO_BANNER = `${DOMINIO_APP}/getHomeBanner`;
 
-fetch(SERVIDOR_URL)
+fetch(RECURSO_BANNER)
 .then(function(response)
 {
     return response.json()

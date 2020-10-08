@@ -6,7 +6,8 @@ function init()
     const PATTERN_MAIL = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     // Url del servidor del cliente
-    const URL_SERVIDOR_DATOS = "https://demo2420474.mockable.io/submitForm";
+
+    const RECURSO_CONSULTAS = `${DOMINIO_APP}/submitForm`;
 
     // DOM
     const FORMULARIO = document.querySelector(".formulario");
@@ -53,8 +54,6 @@ function init()
 
             enviarDatosAlServidor(nuevoMensaje);
 
-            alert(`Gracias ${nombre.value}, su mensaje ha sido enviado con éxito.`);
-            limpiarCampos();
         }
 
     }
@@ -170,7 +169,7 @@ function init()
 
     function enviarDatosAlServidor(OBJ_Mensaje)
     {
-        fetch(URL_SERVIDOR_DATOS, {
+        fetch(RECURSO_CONSULTAS, {
             method:'POST',
             body: JSON.stringify(OBJ_Mensaje),
             headers:{'Content-Type':'application/json'} 
@@ -180,7 +179,14 @@ function init()
             return response.json()
         })
         .then(function(mensaje){
-            console.log(mensaje);
+            
+            if(!mensaje.err) {
+                alert(`Gracias ${nombre.value}, su mensaje ha sido enviado con éxito.`);
+                limpiarCampos();
+            }
+        })
+        .catch(err=> {
+            alert(`No enviado. Intente nuevamente.`);
         });
     }
 

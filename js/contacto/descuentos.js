@@ -2,9 +2,9 @@
 // OBTENEMOS DEL STORAGE EL NOMBRE DEL USUARIO
 let nombreUsuario = localStorage.getItem("nombreJS");
 
-const URL_DESCUENTO = "https://demo2420474.mockable.io/getCoupon ";
+const RECURSO_DESCUENTOS = `${DOMINIO_APP}/getCoupon`;
 
-fetch(URL_DESCUENTO)
+fetch(RECURSO_DESCUENTOS)
 .then(function(response)
 {
     return response.json();

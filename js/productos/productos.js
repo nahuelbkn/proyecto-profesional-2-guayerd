@@ -51,7 +51,9 @@ arrayProductos_ej = {
 } 
 */
 
-fetch(URL_PRODUCTOS)
+const RECURSO_PRODUCTOS = `${DOMINIO_APP}/productList`;
+
+fetch(RECURSO_PRODUCTOS)
 .then(function(response)
 {
     return response.json();
