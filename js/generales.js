@@ -5,7 +5,8 @@ const LS_NOMBRE = "nombreJS";
 const LS_EMAIL = "emailJS";
 const LS_DECISION = "decision";
 const LS_DECISION_NOVEDADES = "decisionNovedades";
-const URL_SERVIDOR = "https://demo2420474.mockable.io/userData";
+const URL_DATOS_VISITANTES = `${DOMINIO_APP}/userData`;
+
 
 
 // Se inicializan las variables con lo que pueda haber guardado en localStorage.
@@ -58,8 +59,6 @@ function pedirDatos(decisionML)
     {
         emailUsuario = prompt("Ingrese su e-mail:");
     } while ( !validarEmail(emailUsuario) );
-
-    guardarDatosEnLS(nombreUsuarioIndex, emailUsuario);
     
     enviarDatosServidor(nombreUsuarioIndex, emailUsuario, decisionML);
 }
@@ -96,7 +95,7 @@ function enviarDatosServidor(nombre, email , decision)
 
     let nuevoContacto = crearContacto(token , nombre, email , decision);
 
-    fetch(URL_SERVIDOR , 
+    fetch(URL_DATOS_VISITANTES , 
     {
         method:'POST',
         body: JSON.stringify(nuevoContacto),
@@ -108,9 +107,16 @@ function enviarDatosServidor(nombre, email , decision)
     })
     .then(function(contacto)
     {
-        //return contacto;
-        console.log(contacto);
+        if (!contacto.err)
+        {
+            guardarDatosEnLS(nombreUsuarioIndex, emailUsuario);
+            alert("Sus datos se guardaron correctamente.");
+        }
     })
+    .catch(function(errorReceived)
+    {
+        alert("No se pudieron guardar sus datos. Intente más tarde.");
+    });
 };
 
 
