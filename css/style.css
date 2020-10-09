@@ -176,6 +176,7 @@ div.producto
     margin: auto;
     margin-bottom: 40px;
     width: 80%;
+    align-items: center;
 }
  
 div.datos {

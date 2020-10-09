@@ -6,8 +6,10 @@ Repositorio de proyectos del Grupo E de Guayerd.
 - Matías Aquino
 - Federico Canesa
 - Guido Alferez
-- Daniela Moure
 - Nahuel Trucco
-- <del>Ignacio Espindola</del>
+
+### Otras personas que formaron parte:
+- Daniela Moure
+- Ignacio Espindola
 
 
