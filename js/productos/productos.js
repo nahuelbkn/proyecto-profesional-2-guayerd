@@ -37,8 +37,6 @@ Plantila productos completa:
 </div>`
 
 */
-
-const URL_PRODUCTOS = "https://demo2420474.mockable.io/productList";
 /*
 arrayProductos_ej = {
     "title": "",
@@ -60,6 +58,7 @@ fetch(RECURSO_PRODUCTOS)
 })
 .then(function(productos)
 {
+    // TODO: Controlar error productos.err
    agregarProductos(productos);
 });
 

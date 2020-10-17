@@ -9,10 +9,11 @@ const RECURSO_BANNER = `${DOMINIO_APP}/getHomeBanner`;
 fetch(RECURSO_BANNER)
 .then(function(response)
 {
-    return response.json()
+    return response.json();
 })
 .then(function(objImagen)
 {
+    // TODO: Controlar error objImagen.err
     agregarObjImagen(objImagen, DIV_IMG_PRINCIPAL);
 });
 

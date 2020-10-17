@@ -162,9 +162,9 @@ function init()
 
     function empaquetarMensaje(nombre , email , telefono , tema , mensaje)
     {
-    let objMensaje = {name: nombre , email: email, phone: telefono, subject: tema, message: mensaje}; 
+        let objMensaje = {name: nombre , email: email, phone: telefono, subject: tema, message: mensaje}; 
 
-    return objMensaje;
+        return objMensaje;
     }
 
     function enviarDatosAlServidor(OBJ_Mensaje)
@@ -176,7 +176,7 @@ function init()
         })
         .then(function(response)
         {
-            return response.json()
+            return response.json();
         })
         .then(function(mensaje){
             

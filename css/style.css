@@ -51,6 +51,21 @@ div.navTitle img
     height: 30px;
 }
 
+.animar
+{
+    animation: spin 1s infinite 4s ease;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 div.navTitle h1{
     margin-left: 20px;
 
