@@ -316,7 +316,6 @@ img.imgOferta
 
 
 
-
 /* PRUEBAS: Zona de pruebas -> reordenar el caso de adoptarse -----------------------------------------*/
 
 .ml15 { /* https://tobiasahlin.com/moving-letters/#15 */
@@ -329,3 +328,5 @@ img.imgOferta
     display: inline-block;
     line-height: 1em;
   }
+
+  
